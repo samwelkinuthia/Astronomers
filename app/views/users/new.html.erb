@@ -1,2 +1,22 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<section class="register-user">
+  <header>
+    <h1>CREATE A NEW SPACE-NEWS ACCOUNT</h1>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <%= form_for @user do |f| %>
+        <%= render "shared/errors", object: @user %>
+        <div class="form-group">
+          <%= f.text_field :username, class:"form-control", required: true, minlength: 3, placeholder: "username"%>
+        </div>
+        <div class="form-group">
+          <%= f.password_field :password, class:"form-control", required: true, minlength: 8, placeholder: "password"%>
+        </div>
+        <div class="form-group">
+          <%= f.button "Register", class: "btn btn primary"%>
+        </div>
+        <%end%>
+      </div>
+    </div>
+  </header>
+</section>
