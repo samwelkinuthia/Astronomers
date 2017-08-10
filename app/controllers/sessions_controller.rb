@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def new
   end
+
   def create
     user = User.find_by(username: login_params[:username])
 
@@ -11,6 +12,11 @@ class SessionsController < ApplicationController
       flash.now[:notice] = 'Password and Username Do not match. Try Again'
       render new
     end
+  end
+
+  def destroy
+    logout
+    redirect_back fallback_location: new_session_path, :notice: 'Logged Out'
   end
 
   private
