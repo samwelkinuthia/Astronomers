@@ -1,6 +1,10 @@
 class LinksController < ApplicationController
   before_action :prevent_unauthorized_user_access, only: %i[new edit]
 
+  def index
+    @Links = Link.all
+  end
+
   def new
     @link = Link.new
   end
