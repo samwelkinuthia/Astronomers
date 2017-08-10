@@ -11,7 +11,7 @@
       <% end %>
 
       <%if logged_in?%>
-        <%= link_to "new link", "#"%>
+        <%= link_to "new link", new_link_path%>
         <%= link_to "Logout", sessions_path, method: :delete%>
       <%end%>
     </div>
