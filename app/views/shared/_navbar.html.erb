@@ -1,0 +1,19 @@
+<header>
+  <nav>
+    <%= link_to "spaceNews", "/", class: "logo"%>
+    <div class="navlinks">
+      <%= link_to "new", "#"%>
+      <%= link_to "comments", "#"%>
+
+      <% unless logged_in?%>
+        <%= link_to "Signup", new_user_path%>
+        <%= link_to "Login", new_session_path%>
+      <%end%>
+
+      <%if logged_in?%>
+        <%= link_to "new link", "#"%>
+        <%= link_to "Logout", "#"%>
+      <%end%>
+    </div>
+  </nav>
+</header>
