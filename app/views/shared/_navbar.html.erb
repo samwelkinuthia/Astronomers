@@ -1,6 +1,6 @@
 <header>
   <nav>
-    <%= link_to "ThePlanetExpress", root_path, class: "logo"%>
+    <%= link_to "spaceNews", root_path, class: "logo"%>
     <div class="navlinks">
       <%= link_to "new", "#"%>
       <%= link_to "comments", "#"%>
@@ -11,7 +11,7 @@
       <% end %>
 
       <%if logged_in?%>
-        <%= link_to "new link", new_link_path%>
+        <%= link_to "submit link", new_link_path%>
         <%= link_to "Logout", sessions_path, method: :delete%>
       <%end%>
     </div>
