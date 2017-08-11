@@ -4,7 +4,12 @@ class CommentsController < ApplicationController
 
   def index; end
 
-  def edit; end
+  def edit
+    unless current_user.owns_comment?(@comment)
+      redirect_to root_path, notice: 'Not authorized to edit this comment'
+    end
+  end
+
 
   def create
     @link = Link.find_by(id: params[:link_id])
