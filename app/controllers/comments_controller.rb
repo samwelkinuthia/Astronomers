@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
   def create
     @link = Link.find_by(id: params[:link_id])
     @comment = @link.comments.new(user: current_user, body: comment_params[:body])
@@ -19,6 +18,14 @@ class CommentsController < ApplicationController
       redirect_to @link, notice: 'comment created'
     else
       redirect_to @link, notice: 'comment not saved'
+    end
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to @link, notice: 'Comment updated'
+    else
+      render :edit
     end
   end
 
