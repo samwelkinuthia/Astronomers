@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_variables, only: [:edit, :update, :destroy]
 
   def index
-    @comment = Comment.all
+    @comments = Comment.all
   end
 
   def edit
