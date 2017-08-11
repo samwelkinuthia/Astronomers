@@ -29,6 +29,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    if current_user.owns_comment?(@comment)
+      @comment.destroy
+      redirect_to @link, notice: 'Comment deleted'
+    else
+      redirect_to @link, notice: 'Not authorized to delete this comment'
+    end
+  end
+
   private
 
   def comment_params
