@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :prevent_unauthorized_user_access, except: :index
+  before_action :set_variables, only: [:edit, :update, :destroy]
 
   def index; end
 
@@ -20,5 +21,10 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:body)
+  end
+
+  def set_variables
+    @link = Link.find_by(id: params[:link_id])
+    @comment = @link.comments.find_by(id:)
   end
 end
