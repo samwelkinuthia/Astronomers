@@ -1,6 +1,10 @@
 class LinksController < ApplicationController
   before_action :prevent_unauthorized_user_access, only: %i[new edit]
 
+  def show
+    @link=Link.find_by(id: params[:id])
+  end
+
   def index
     @links = Link.all
   end
