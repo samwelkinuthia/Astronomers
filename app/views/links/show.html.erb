@@ -1,2 +1,13 @@
-<h1>Links#show</h1>
-<p>Find me in app/views/links/show.html.erb</p>
+<section class="link-thread">
+  <header>
+    <h4>
+      <%= @link.title %>
+    </h4>
+
+    <% if @link.description? %>
+    <p>
+      <%= @link.description %>
+    </p>
+    <% end %>
+  </header>
+</section>
