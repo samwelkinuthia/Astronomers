@@ -48,6 +48,6 @@ class CommentsController < ApplicationController
 
   def set_variables
     @link = Link.find_by(id: params[:link_id])
-    @comment = @link.comments.find_by(id:)
+    @comment = @link.comments.find_by(id: params[:id])
   end
 end
