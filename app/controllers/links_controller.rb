@@ -29,6 +29,16 @@ class LinksController < ApplicationController
     end
   end
 
+  def destroy
+    link = Link.find_by(id: params[:id])
+    if current_user.owns_link?(link)
+      link.destroy
+      redirect_to root_path, notice: 'Link deleted'
+    else
+      redirect_to root_path, notice: 'Not authorized'
+    end
+  end
+
   private
 
   def link_params
