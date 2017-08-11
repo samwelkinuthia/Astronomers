@@ -2,7 +2,9 @@ class CommentsController < ApplicationController
   before_action :prevent_unauthorized_user_access, except: :index
   before_action :set_variables, only: [:edit, :update, :destroy]
 
-  def index; end
+  def index
+    @comment = Comment.all
+  end
 
   def edit
     unless current_user.owns_comment?(@comment)
