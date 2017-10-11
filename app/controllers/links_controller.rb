@@ -52,10 +52,15 @@ class LinksController < ApplicationController
       render :edit
     end
   end
-
+#upvote method for links
   def upvote
     link = Link.find_by(id: params[:id])
-    current_user.upvote(link)
+    if current_user.upvoted?(link)
+      current_user.remove_vote(link)
+    else
+      current_user.upvote(link)
+    end
+    
     redirect_to root_path
   end
 
