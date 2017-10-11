@@ -10,8 +10,6 @@ class Link < ApplicationRecord
             format: { with: %r{\Ahttps?://} },
             allow_blank: true
 
-  scope :hottest, -> { order(hot: :desc) }
-
 # MODEL METHODS
   # counting the total number of comments a link has
   def comment_count
@@ -26,19 +24,20 @@ class Link < ApplicationRecord
     votes.sum(:downvote)
   end
   #calculating hotscore algorithm
-  def calculate_hot
+  def calc_hot_score
     points = upvotes - downvotes
     time_ago_in_hours = ((Time.now - created_at) / 3600).round
-    score = hot(points, time_ago_in_hours)
+    score = hot_score(points, time_ago_in_hours)
 
-    update_attributes(points: points, hot: score)
+    update_attributes(points: points, hot_score: score)
   end
+
+  scope :hottest, -> { order(hot_score: :desc) }
 
   private
 
-  def hot(points, time_ago_in_hours, gravity = 1.8)
+  def hot_score(points, time_ago_in_hours, gravity = 1.8)
     #subtract 1 from points as defaut point value is one
     (points - 1) / (time_ago_in_hours + 2) ** gravity
   end
-
 end
