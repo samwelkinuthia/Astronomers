@@ -10,10 +10,11 @@ class Link < ApplicationRecord
             format: { with: %r{\Ahttps?://} },
             allow_blank: true
 
+  # counting the total number of comments a link has
   def comment_count
     comments.length
   end
-
+  #sum of upvotes for particular link
   def upvotes
     votes.sum(:upvote)
   end
