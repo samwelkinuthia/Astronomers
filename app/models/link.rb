@@ -10,6 +10,8 @@ class Link < ApplicationRecord
             format: { with: %r{\Ahttps?://} },
             allow_blank: true
 
+  scope :newest, -> { order(created_at: :desc) }
+
 # MODEL METHODS
   # counting the total number of comments a link has
   def comment_count
@@ -33,8 +35,7 @@ class Link < ApplicationRecord
   end
 
   scope :hottest, -> { order(hot_score: :desc) }
-  scope :newest, -> { order(created_at: :desc) }
-  
+
   private
 
   def hot_score(points, time_ago_in_hours, gravity = 1.8)
