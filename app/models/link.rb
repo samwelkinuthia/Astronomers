@@ -33,7 +33,8 @@ class Link < ApplicationRecord
   end
 
   scope :hottest, -> { order(hot_score: :desc) }
-
+  scope :newest, -> { order(created_at: :desc) }
+  
   private
 
   def hot_score(points, time_ago_in_hours, gravity = 1.8)
