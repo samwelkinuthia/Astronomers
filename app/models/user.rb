@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes
 
-  
+
   validates :username,
               presence: true,
               length: {minimum: 3},
@@ -12,12 +12,16 @@ class User < ApplicationRecord
               length: {minimum: 8}
 
   has_many :links, dependent: :destroy
-
+# identifying owner of particular link
   def owns_link?(link)
     self == link.user
   end
-
+# define owner of a particular comment
   def owns_comment?(comment)
     self == comment.user
+  end
+#upvote functionality
+  def upvote(link)
+    votes.create(upvote: 1, link:link)
   end
 end
