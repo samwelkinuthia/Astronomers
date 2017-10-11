@@ -1,6 +1,11 @@
 class LinksController < ApplicationController
   before_action :prevent_unauthorized_user_access, except: %i[show index]
-
+``
+  #display all links in the newest page in desc order of time.
+  def newest
+    @links = Link.newest
+  end
+  
   def show
     @link = Link.find_by(id: params[:id])
     @comments = @link.comments
@@ -84,11 +89,6 @@ class LinksController < ApplicationController
 
     link.calc_hot_score
     redirect_to root_path
-  end
-
-  #display all links in the newest page in desc order of time.
-  def newest
-    @newest = Link.newest
   end
 
   private
