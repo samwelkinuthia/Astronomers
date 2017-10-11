@@ -60,10 +60,10 @@ class LinksController < ApplicationController
     else
       current_user.upvote(link)
     end
-    
+
     redirect_to root_path
   end
-
+#downvotes
   private
 
   def link_params
