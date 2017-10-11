@@ -53,6 +53,12 @@ class LinksController < ApplicationController
     end
   end
 
+  def upvote
+    link = Link.find_by(id: params[:id])
+    current_user.upvote(link)
+    redirect_to root_path
+  end
+
   private
 
   def link_params
