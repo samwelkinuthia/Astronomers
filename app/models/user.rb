@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def upvote(link)
     votes.create(upvote: 1, link:link)
   end
+#checks if user has already voted on a link
+  def upvoted?(link)
+    votes.exists?(upvote: 1, link: link)
+  end
 end
