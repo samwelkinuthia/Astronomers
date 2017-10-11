@@ -10,6 +10,9 @@ class Link < ApplicationRecord
             format: { with: %r{\Ahttps?://} },
             allow_blank: true
 
+  scope :hottest, -> { order(hot: :desc) }
+
+# MODEL METHODS
   # counting the total number of comments a link has
   def comment_count
     comments.length
