@@ -43,6 +43,9 @@
         <span class="upvote-link">
           <%= link_to "upvote (#{link.upvotes})", upvote_link_path(link), method: :post %>
         </span>
+        <span class="downvote-link">
+          <%= link_to "downvote (#{link.downvotes})", downvote_link_path(link), method: :post %>
+        </span>
       <% end %>
     </div>
 
