@@ -30,4 +30,12 @@ class Link < ApplicationRecord
 
     update_attributes(points: points, hot: score)
   end
+
+  private
+
+  def hot(points, time_ago_in_hours, gravity = 1.8)
+    #subtract 1 from points as defaut point value is one
+    (points - 1) / (time_ago_in_hours + 2) ** gravity
+  end
+
 end
