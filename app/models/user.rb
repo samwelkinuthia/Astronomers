@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :comments
+  has_many :votes
+
+  
   validates :username,
               presence: true,
               length: {minimum: 3},
