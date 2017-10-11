@@ -22,4 +22,12 @@ class Link < ApplicationRecord
   def downvotes
     votes.sum(:downvote)
   end
+  #calculating hotscore algorithm
+  def calculate_hot
+    points = upvotes - downvotes
+    time_ago_in_hours = ((Time.now - created_at) / 3600).round
+    score = hot(points, time_ago_in_hours)
+
+    update_attributes(points: points, hot: score)
+  end
 end
