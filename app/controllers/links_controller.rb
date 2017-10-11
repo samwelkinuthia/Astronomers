@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :prevent_unauthorized_user_access, except: [:show, :index]
+  before_action :prevent_unauthorized_user_access, except: %i[show index]
 
   def show
     @link = Link.find_by(id: params[:id])
@@ -7,7 +7,7 @@ class LinksController < ApplicationController
   end
 
   def index
-    @links = Link.all
+    @link = Link.hottest
   end
 
   def new
