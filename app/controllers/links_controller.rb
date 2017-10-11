@@ -86,6 +86,11 @@ class LinksController < ApplicationController
     redirect_to root_path
   end
 
+  #display all links in the newest page in desc order of time.
+  def newest
+    @newest = Link.newest
+  end
+
   private
 
   def link_params
