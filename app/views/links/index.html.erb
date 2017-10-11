@@ -30,14 +30,20 @@
       </span>
       |
       <% if logged_in? && current_user.owns_link?(link)%>
-      <span class="edit-link">
-        <%= link_to "edit", edit_link_path(link) %>
-      </span>
-      |
-      <span class="delete-link">
-        <%= link_to "delete", link, method: :delete, data: {confirm: "you sure?"}%>
-      </span>
+        <span class="edit-link">
+          <%= link_to "edit", edit_link_path(link) %>
+        </span>
+        |
+        <span class="delete-link">
+          <%= link_to "delete", link, method: :delete, data: {confirm: "you sure?"}%>
+        </span>
       <%end%>
+      |
+      <% if logged_in? %>
+        <span class="upvote-link">
+          <%= link_to "upvote (#{link.upvotes})", upvote_link_path(link), method: :post %>
+        </span>
+      <% end %>
     </div>
 
   </div>
