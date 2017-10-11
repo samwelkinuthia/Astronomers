@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   root 'links#index'
 
   resources :links, except: :index do
@@ -10,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   get '/comments' => 'comments#index'
-  get '/newest' => 'links#newest'
+  get '/newest' => 'links#newest', as: :newest_links
+
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
