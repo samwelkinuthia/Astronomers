@@ -7,7 +7,7 @@ class LinksController < ApplicationController
   end
 
   def index
-    @link = Link.hottest
+    @links = Link.hottest
   end
 
   def new
@@ -65,7 +65,7 @@ class LinksController < ApplicationController
       current_user.upvote(link)
     end
 
-    link.calc_hot
+    link.calc_hot_score
     redirect_to root_path
   end
 
@@ -82,7 +82,7 @@ class LinksController < ApplicationController
       current_user.downvote(link)
     end
 
-    link.calc_hot
+    link.calc_hot_score
     redirect_to root_path
   end
 
