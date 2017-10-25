@@ -13,15 +13,29 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome"; // custom stylesheets
+@import "navbar";
+@import "links"; //fonts
+@import url( 'https://fonts.googleapis.com/css?family=Fredoka+One|Muli|Open+Sans:300,300i,400|PT+Sans|Ubuntu|Lato');
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
- @import "font-awesome";
-
- // custom stylesheets
- @import "styles";
-
-
-body{
+body {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(red, yellow); /* Standard syntax */
   overflow-x: hidden;
+  background-attachment: fixed;
+}
+
+.main {
+  min-height: 100vh;
+  margin-bottom: 50px;
+}
+
+.footer {
+  height: 50px;
+  margin-top: -50px;
 }
