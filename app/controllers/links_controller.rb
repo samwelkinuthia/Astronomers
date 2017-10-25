@@ -5,7 +5,7 @@ class LinksController < ApplicationController
   def newest
     @links = Link.newest
   end
-  
+
   def show
     @link = Link.find_by(id: params[:id])
     @comments = @link.comments
