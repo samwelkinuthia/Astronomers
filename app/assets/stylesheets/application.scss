@@ -18,7 +18,9 @@
 @import "bootstrap";
 @import "font-awesome"; // custom stylesheets
 @import "navbar";
-@import "links"; //fonts
+@import "links";
+@import "links_show";
+//fonts
 @import url( 'https://fonts.googleapis.com/css?family=Fredoka+One|Muli|Open+Sans:300,300i,400|PT+Sans|Ubuntu|Lato');
 
 body {
@@ -34,9 +36,4 @@ body {
 .main {
   min-height: 100vh;
   margin-bottom: 50px;
-}
-
-.footer {
-  height: 50px;
-  margin-top: -50px;
 }
