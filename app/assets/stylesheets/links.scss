@@ -1,3 +1,78 @@
 // Place all the styles related to the links controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.all-links {
+  background-color: white;
+}
+
+.link {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 5px;
+  .metadata{
+    font-family: 'Ubuntu', sans-serif;
+  }
+  .points{
+    font-family: 'Ubuntu', sans-serif;
+    .username{
+      color:#737373;
+      font-size: 12px;
+    }
+  }
+  .time-created {
+    color: #0000e6;
+  }
+
+  .upvote {
+    font-size: 20px;
+    color: #33cc00;
+  }
+
+  .downvote {
+    font-size: 20px;
+    color: #e62e00;
+  }
+
+  .comment {
+    font-size: 15px;
+    color:#006600;
+    margin-left: 3px;
+  }
+
+  .delete-link a,
+  .edit-link a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .delete-link a:hover,
+  .edit-link a:hover {
+    text-decoration: none;
+    color: blue;
+  }
+
+  .title {
+    text-align: left;
+
+    .link_main {
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+
+      a {
+        font-weight: 100;
+        color: black;
+      }
+    }
+
+    .link_url {
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 13px;
+      margin: 0;
+      color: #959594;
+    }
+  }
+
+  .metadata {
+    font-size: 13px;
+  }
+}
