@@ -112,4 +112,6 @@ None
 
 The contents of this repository are bounded by the Apache License Version 2.0,
 
+[![forthebadge](http://forthebadge.com/images/badges/made-with-ruby.svg)](http://forthebadge.com)
+
 &copy; __2017__
