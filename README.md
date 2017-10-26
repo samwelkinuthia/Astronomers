@@ -2,7 +2,7 @@
 
 A web application for space nerds to share links to interesting space related articles out there as well as interact with their fellow nerds.
 
-The live demo can be viewed [here](http://astronomers.herokuapp.com)
+The live demo can be viewed [here](http://astronomers.herokuapp.com).
 
 ## How to use
 
