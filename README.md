@@ -52,29 +52,25 @@ Enjoy! :smile:
 The posted links are sorted depending on popularity( the hot score) and time.
 This is to ensure links posted long ago, no matter how popular, do not occupy the front page.
 
-###### the hot score
+##### the hot score
 
-* The difference between the upvotes and downvotes is obtained.
-```
-points = upvotes - downvotes
-```
-* Time when the link was posted is obtained via the created_at method and formatted to a number.
-```
-posted_time = ((Time.now - created_at) / 3600).round
-```
-* The link score is then calculated using the hot score formula that takes two values, the __points__ and the __posted_time__
-```
-score = hot_score(points, posted_time)
-```
+* The difference between the upvotes and downvotes is obtained ```points = upvotes - downvotes```
+
+* Time when the link was posted is obtained via the created_at method and formatted to a number ```posted_time = ((Time.now - created_at) / 3600).round ```
+
+* The link score is then calculated using the hot score formula that takes two values, the __points__ and the __posted_time__ ```score = hot_score(points, posted_time)```
+
 * Calculating the hot score
+
 ```
 def hot_score(points, posted_time, gravity = 1.8)
   (points - 1) / (posted_time + 2) ** gravity
-end```
+end
+```
 
-> On creating a link, the link is assigned a value of 1 point hence the minus above.
+
+On creating a link, the link is assigned a value of 1 point hence the minus above.
 The gravity value can be anything, depending on how fast you want the link popularity to decline.
-
 
 ## Make it your own
 
